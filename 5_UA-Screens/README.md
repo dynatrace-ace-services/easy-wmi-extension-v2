@@ -82,4 +82,3 @@ You have completed this exercise when your customized unified analysis screens a
 ---
 ## [Next exercise ▶](../6_Assets)
 
-#### [◀ Previous exercise](../4_Generic-Topology)
