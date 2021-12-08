@@ -39,5 +39,3 @@ You have completed the exercise when your extension shows up in Dynatrace as Act
 
 ---
 ## [Next exercise ▶](../2_WMI-DataSource)
-
-#### [◀ Back to intro](../)
