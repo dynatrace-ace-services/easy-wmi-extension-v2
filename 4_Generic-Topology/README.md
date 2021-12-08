@@ -38,5 +38,3 @@ You have completed this exercise when you see new entities created for your gene
 
 ---
 ## [Next exercise ▶](../5_UA-Screens)
-
-#### [◀ Previous exercise](../3_Metric-Metadata)
