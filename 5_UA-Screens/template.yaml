@@ -1,0 +1,140 @@
+screens:
+  - entityType: wmi:generic_host
+    detailsSettings:
+      staticContent:
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_host-chart-metrics"
+          - type: "ENTITIES_LIST"
+            key: "wmi_host-list-network_interfaces"
+          - type: "ENTITIES_LIST"
+            key: "wmi_host-list-network_adapters"
+    chartsCards:
+      - key: "wmi_host-chart-metrics"
+        displayName: "Generic Host Metrics"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "CPU Usage Breakdown"
+            visualization:
+              themeColor: BLUE
+              seriesType: AREA
+            metrics:
+              #
+              # add metric selectors for the 3 cpu metrics
+              #
+          - displayName: "CPU User"
+            visualization:
+              themeColor: BLUE
+              seriesType: LINE
+            metrics:
+              - metricSelector: # add the metric selector for CPU User
+          - displayName: "CPU Idle"
+            visualization:
+              themeColor: BLUE
+              seriesType: LINE
+            metrics:
+              - metricSelector: # add the metric selector for CPU Idle
+          - displayName: "CPU Used"
+            visualization:
+              themeColor: BLUE
+              seriesType: LINE
+            metrics:
+              - metricSelector: # add the metric selector for CPU Used
+    entitiesListCards:
+      - key: "wmi_host-list-network_interfaces"
+        displayName: "Network Interfaces"
+        entitySelectorTemplate: # add the entity selector template for listing out network interfaces
+        pageSize: 5
+        displayCharts: false
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        charts: 
+          - displayName: "Traffic"
+            visualization:
+              themeColor: BLUE
+              seriesType: AREA
+            metrics:
+              - metricSelector: "custom.demo.host-observability.network.bytes.sent.persec:SplitBy()"
+              - metricSelector: "custom.demo.host-observability.network.bytes.received.persec:SplitBy()"
+      - key: "wmi_host-list-network_adapters"
+        displayName: "Network Adapters"
+        entitySelectorTemplate: "type(wmi:generic_network_device),fromRelationships.runsOn($(entityConditions)),wmi_network_type(Adapter)"
+        pageSize: 5
+        displayCharts: false
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        charts: 
+          - displayName: "Traffic"
+            visualization:
+              themeColor: BLUE
+              seriesType: AREA
+            metrics:
+              - metricSelector: "custom.demo.host-observability.network.bytes.sent.persec:SplitBy()"
+              - metricSelector: "custom.demo.host-observability.network.bytes.received.persec:SplitBy()"
+  - entityType: wmi:generic_network_device
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: # add the key for the Network Name attribute
+            displayName: Name
+        - type: ATTRIBUTE
+          attribute:
+            key: # add the key for the Network Type attribute
+            displayName: Type
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: # add the entity selector template for this entity's host
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+        - type: "CHART_GROUP"
+          key: "wmi_network_device-chart-traffic"
+    chartsCards:
+      - key: "wmi_network_device-chart-traffic"
+        displayName: "Traffic"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "Traffic breakdown"
+            visualization:
+              themeColor: BLUE
+              seriesType: AREA
+            metrics:
+              - metricSelector: "custom.demo.host-observability.network.bytes.persec:SplitBy()"
+              - metricSelector: "custom.demo.host-observability.network.bytes.sent.persec:SplitBy()"
+              - metricSelector: "custom.demo.host-observability.network.bytes.received.persec:SplitBy()"
+          - displayName: "Bytes sent"
+            visualization:
+              themeColor: BLUE
+              seriesType: LINE
+            metrics:
+              - metricSelector: "custom.demo.host-observability.network.bytes.sent.persec:SplitBy()"
+          - displayName: "Bytes received"
+            visualization:
+              themeColor: BLUE
+              seriesType: LINE
+            metrics:
+              - metricSelector: "custom.demo.host-observability.network.bytes.sent.persec:SplitBy()"
+          - displayName: "Bytes"
+            visualization:
+              themeColor: BLUE
+              seriesType: LINE
+            metrics:
+              - metricSelector: "custom.demo.host-observability.network.bytes.sent.persec:SplitBy()"

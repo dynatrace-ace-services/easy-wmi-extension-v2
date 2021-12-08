@@ -1,0 +1,12 @@
+metrics:
+  - key: custom.demo.host-observability.network.bytes.persec
+    metadata:
+      displayName: Traffic bytes/s
+      description: Network traffic bytes per second
+      unit: BytePerSecond
+  #
+  #
+  # add content here, for all other metrics
+  #
+  #
+  #

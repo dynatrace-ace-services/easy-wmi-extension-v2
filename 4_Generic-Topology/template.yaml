@@ -1,0 +1,38 @@
+topology:
+  types:
+    - name: wmi:generic_host
+      displayName: # name this entity type
+      enabled: true
+      rules:
+        - idPattern: wmi_generic_host_{dt.entity.host}
+          sources:
+            - sourceType: Metrics
+              condition: # map to all metrics of the extension
+          attributes: []
+          requiredDimensions: []
+          instanceNamePattern: Generic Host on {dt.entity.host}
+    - name: wmi:generic_network_device
+      displayName: # name this entity type
+      enabled: true
+      rules:
+        - idPattern: wmi_generic_{dt.entity.host}_{network.type}_{network.name}
+          sources:
+            - sourceType: Metrics
+              condition: # map to network metrics of the extension
+          attributes:
+            - pattern: # extract using the network name dimension
+              key: wmi_network_name
+              displayName: Name
+            - pattern: # extract using the network type dimension
+              key: wmi_network_type
+              displayName: Type
+          requiredDimensions: []
+          instanceNamePattern: Network {network.type} {network.name} on {dt.entity.host}
+  relationships:
+    - typeOfRelation: RUNS_ON
+      fromType: # add entity type here
+      toType: # add entity type here
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(custom.demo.host-observability)

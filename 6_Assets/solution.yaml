@@ -1,0 +1,4 @@
+dashboards:
+  - path: assets/dashboard.json
+alerts:
+  - path: assets/alert_cpu.json

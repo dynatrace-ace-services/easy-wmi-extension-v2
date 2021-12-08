@@ -1,0 +1,49 @@
+wmi:
+  - group: # add group name here
+    interval:
+      minutes: # add metric collection frequency here
+    dimensions:
+      - key: host
+        value: # must identify the host running the extension
+    subgroups:
+      - subgroup: CPU
+        query: SELECT Name, PercentProcessorTime, PercentIdleTime, PercentUserTime FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name LIKE '_Total'
+        metrics:
+          - key: custom.demo.host-observability.cpu.time.processor
+            value: # extract metric by column
+          - key: custom.demo.host-observability.cpu.time.idle
+            value: # extract metric by column
+          - key: custom.demo.host-observability.cpu.time.user
+            value: # extract metric by column
+        dimensions:
+          - key: host.cpu.id
+            value: column:Name
+  - group: # add group name here
+    interval:
+      minutes: # add metric collection frequency here
+    dimensions:
+      - key: host
+        value: # must identify the host running the extension
+    subgroups:
+      - subgroup: Adapters
+        query: SELECT Name, BytesTotalPersec, BytesReceivedPersec, BytesSentPersec FROM Win32_PerfFormattedData_Tcpip_NetworkAdapter
+        metrics:
+          - key: custom.demo.host-observability.network.bytes.persec
+            value: # extract metric by column
+          - key: # second metric key
+            value: # extract metric by column
+          - key: # third metric key
+            value: # extract metric by column
+        dimensions:
+          - key: network.type
+            value: # add a literal string Adapter
+          - key: network.name
+            value: column:Name
+      - subgroup: Interfaces
+      #
+      #
+      #
+      #  add contents here, for everything needed to collect Network Interface metrics via WMI Query
+      #  hint: check exercise description for the missing WMI query
+      #
+      #
