@@ -49,5 +49,3 @@ You have completed the exercise when all your 6 metrics show up in the "Metrics"
 
 ---
 ## [Next exercise ▶](../3_Metric-Metadata)
-
-#### [◀ Previous exercise](../1_Basic-Extension)
