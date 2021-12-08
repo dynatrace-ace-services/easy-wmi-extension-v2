@@ -32,5 +32,3 @@ You have completed this exercise when you can see the metadata reflected in the 
 
 ---
 ## [Next exercise ▶](../4_Generic-Topology)
-
-#### [◀ Previous exercise](../2_WMI-DataSource)
