@@ -1,6 +1,6 @@
 # Prerequisites
 
-To successfully develop Extensions 2.0 and be able to complete this tutorial you will need to sort out some pre-requisites:
+To successfully develop Extensions 2.0 and be able to complete this tutorial you will need to sort out some pre-requisites: 
 * Admin access to a Dynatrace SaaS or Managed environment (min. version 1.227)
 * A Windows host (virtual machine)
 * OneAgent (min. version 1.227) deployed on the said Windows host
