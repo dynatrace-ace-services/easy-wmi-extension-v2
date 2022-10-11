@@ -59,7 +59,7 @@ To successfully develop Extensions 2.0 and be able to complete this tutorial you
 ## Distribute the root certificate to Dynatrace components
 
 ### 1. Upload to the Dynatrace Credential Vault
-1. Go to `Settings`>`Web and mobile monitoring`>`Credential Vault`>`Add credential`
+1. Go to `MAnage`>`Credential Vault`>`Add credential`
 2. Set the credential type to `Public Certificate`
 3. Upload the `ca.pem` or `root.pem` generated earlier
 
